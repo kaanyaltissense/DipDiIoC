@@ -3,6 +3,7 @@
  * 
  * CustomerBusinessLogic no longer creates the DataAccess object itself.
  * It uses DataAccessFactory to get an instance of DataAccess. 
+ * 
  * We achieved Inversion of Control; however, CustomerBusinessLogic still depends 
  * on the concrete implementation DataAccess. Which is not desireable since any change in 
  * DataAccess would require changes in CustomerBusinessLogic. 

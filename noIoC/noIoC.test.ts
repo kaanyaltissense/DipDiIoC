@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { CustomerBusinessLogic } from './noIoC';
 
 describe('Testing CustomerBusinessLogic getCustomerName', () => {
-    let customerBusinessLogic;
+    let customerBusinessLogic: CustomerBusinessLogic;
 
     beforeEach(() => {
         customerBusinessLogic = new CustomerBusinessLogic();

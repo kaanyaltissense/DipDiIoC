@@ -4,6 +4,7 @@ import { CustomerBusinessLogic, DataAccessFactory } from './IoCWithFactory';
 
 describe('Testing CustomerBusinessLogic getCustomerName', () => {
     let sandbox: sinon.SinonSandbox;
+    let customerBusinessLogic: CustomerBusinessLogic;
 
     const mockDataAccess: any = {
         getCustomerName: Function
@@ -16,6 +17,7 @@ describe('Testing CustomerBusinessLogic getCustomerName', () => {
     })
     beforeEach(() => {
         getCustomerNameStub = sandbox.stub(mockDataAccess, 'getCustomerName');
+        customerBusinessLogic = new CustomerBusinessLogic();
     })
     afterEach(() => {
         sandbox.restore();
@@ -26,7 +28,7 @@ describe('Testing CustomerBusinessLogic getCustomerName', () => {
             const expectedResult = 'My name is Jeeeef!';
             sinon.stub(DataAccessFactory, 'getDataAccessObject').returns(mockDataAccess);
             getCustomerNameStub.returns(expectedResult);
-            const actualResult = new CustomerBusinessLogic().getCustomerName();
+            const actualResult = customerBusinessLogic.getCustomerName();
             expect(actualResult).to.equal(expectedResult);
         });
     });
