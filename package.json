@@ -12,7 +12,8 @@
     "test:DIFramework": "mocha --require ts-node/register ./DIWithFramework/**/*.test.ts",
     "test:noIoC": "mocha --require ts-node/register ./noIoC/**/*.test.ts",
     "test:IoCWithFactory": "mocha --require ts-node/register ./IoCWithFactory/**/*.test.ts",
-    "test:DIP": "mocha --require ts-node/register ./DIP/**/*.test.ts"
+    "test:DIP": "mocha --require ts-node/register ./DIP/**/*.test.ts",
+    "test:PropertyInjection": "mocha --require ts-node/register ./DIWithoutFramework/**/propertyInjection.test.ts"
   },
   "author": "",
   "license": "ISC",
