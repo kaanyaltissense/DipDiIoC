@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start:DIFramework": "ts-node ./DIWithFramework/index.ts",
-    "test:DIFramework": "mocha --require ts-node/register ./DIWithFramework/**/*.test.ts"
+    "test:DIFramework": "mocha --require ts-node/register ./DIWithFramework/**/*.test.ts",
+    "test:noIoC": "mocha --require ts-node/register ./noIoC/**/*.test.ts",
+    "test:IoCWithFactory": "mocha --require ts-node/register ./IoCWithFactory/**/*.test.ts"
   },
   "author": "",
   "license": "ISC",
