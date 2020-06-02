@@ -31,12 +31,5 @@
       "./node_modules/@types",
       "./types"
     ]
-  },
-  "include": [
-    "src/fulfillmentQueueConsumer/**/*.ts",
-    "src/gwFulfillment/**/*.ts",
-    "src/wilOdoo/**/*.ts",
-    "src/common/**/*.ts",
-    "tests/**/*.ts"
-  ]
+  }
 }

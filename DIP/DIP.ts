@@ -11,41 +11,39 @@
  * It is now quite easy to switch out DataAccess with another class (SomeOtherDataAccessService) that implements ICustomerDataAccess, and we won't have to make changes in
  * CustomerBusinessLogic
  */
-namespace DIP {
 
-    class CustomerBusinessLogic {
-        constructor() {
-        }
-
-        public getCustomerName() {
-            const dataAccess: ICustomerDataAccess = DataAccessFactory.getDataAccessObject();
-            return dataAccess.getCustomerName();
-        }
+export class CustomerBusinessLogic {
+    constructor() {
     }
 
-    // The abstraction that we introduced is this interface
-    interface ICustomerDataAccess {
-        getCustomerName(): string;
+    public getCustomerName() {
+        const dataAccess: ICustomerDataAccess = DataAccessFactory.getDataAccessObject();
+        return dataAccess.getCustomerName();
     }
+}
 
-    class DataAccessFactory {
-        public static getDataAccessObject(): ICustomerDataAccess {
-            return new DataAccess();
-        }
+// The abstraction that we introduced is this interface
+export interface ICustomerDataAccess {
+    getCustomerName(): string;
+}
+
+export class DataAccessFactory {
+    public static getDataAccessObject(): ICustomerDataAccess {
+        return new CustomerDataAccess();
     }
+}
 
-    class DataAccess implements ICustomerDataAccess {
-        constructor() {
+export class CustomerDataAccess implements ICustomerDataAccess {
+    constructor() {
 
-        }
-        public getCustomerName(): string {
-            return "Narutooooooooooo";
-        }
     }
+    public getCustomerName(): string {
+        return "Narutooooooooooo";
+    }
+}
 
-    class SomeOtherDataAccessService implements ICustomerDataAccess {
-        public getCustomerName() {
-            return "Sasukeeeeeeeeeeeeeeeee";
-        }
+export class SomeOtherDataAccessService implements ICustomerDataAccess {
+    public getCustomerName() {
+        return "Sasukeeeeeeeeeeeeeeeee";
     }
 }
