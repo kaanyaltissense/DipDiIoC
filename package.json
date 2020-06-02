@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:DIFramework": "ts-node ./DIWithFramework/index.ts",
+    "start:DIFramework": "FILE_DB=false ts-node ./DIWithFramework/index.ts",
     "start:noIoC": "ts-node ./noIoC/noIoC.ts",
     "start:IoCWithFactory": "ts-node ./IoCWithFactory/IoCWithFactory.ts",
     "start:DIP": "USE_THE_OTHER_DATA_SERVICE=true ts-node ./DIP/DIP.ts",
     "test:DIFramework": "mocha --require ts-node/register ./DIWithFramework/**/*.test.ts",
     "test:noIoC": "mocha --require ts-node/register ./noIoC/**/*.test.ts",
-    "test:IoCWithFactory": "mocha --require ts-node/register ./IoCWithFactory/**/*.test.ts"
+    "test:IoCWithFactory": "mocha --require ts-node/register ./IoCWithFactory/**/*.test.ts",
+    "test:DIP": "mocha --require ts-node/register ./DIP/**/*.test.ts"
   },
   "author": "",
   "license": "ISC",
