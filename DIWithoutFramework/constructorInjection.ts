@@ -5,6 +5,8 @@
  * As can be seen, the injector class provides the dependency, aka ICustomerDataAccess implementation, in the constructor of the
  * client class (CustomerBusinessLogic)
  */
+import * as fs from 'fs';
+import * as path from 'path';
 export class CustomerService {
     private customerBusinessLogic: CustomerBusinessLogic;
 
@@ -44,7 +46,8 @@ export class DataAccess implements ICustomerDataAccess {
 
 export class SomeOtherDataAccessService implements ICustomerDataAccess {
     public getCustomerName() {
-        return "Sasukeeeeeeeeeeeeeeeee";
+        const dbOutput = fs.readFileSync(path.join(__dirname, '../customerDb'), { encoding: 'utf-8' });
+        return dbOutput;
     }
 }
 
