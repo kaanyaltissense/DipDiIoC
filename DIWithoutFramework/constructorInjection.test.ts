@@ -1,12 +1,13 @@
 import "reflect-metadata";
 import { expect } from 'chai';
 import * as sinon from 'sinon';
-import { ICustomerBusinessLogic } from './Interfaces';
-import { CustomerBusinessLogic } from './CustomerBusinessLogic';
+import { CustomerBusinessLogic } from '../DIWithFramework/CustomerBusinessLogic';
+
+
 
 describe('Testing CustomerBusinessLogic getCustomerName', () => {
     let sandbox: sinon.SinonSandbox;
-    let customerBusinessLogic: ICustomerBusinessLogic;
+    let customerBusinessLogic: CustomerBusinessLogic;
 
     const mockDataAccess: any = {
         getCustomerName: Function

@@ -11,7 +11,11 @@ export class CustomerService {
     private customerBusinessLogic: CustomerBusinessLogic;
 
     constructor() {
-        this.customerBusinessLogic = new CustomerBusinessLogic(new DataAccess());
+        if (process.env.USE_THE_OTHER_DATA_SERVICE === 'true') {
+            this.customerBusinessLogic = new CustomerBusinessLogic(new SomeOtherDataAccessService());
+        } else {
+            this.customerBusinessLogic = new CustomerBusinessLogic(new DataAccess());
+        }
     }
 
     public getCustomerName(): string {
@@ -53,3 +57,4 @@ export class SomeOtherDataAccessService implements ICustomerDataAccess {
 
 
 
+console.log(new CustomerService().getCustomerName());
