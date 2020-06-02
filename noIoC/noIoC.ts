@@ -26,3 +26,5 @@ export class DataAccess {
         return "Narutooooooooooo";
     }
 }
+
+console.log(new CustomerBusinessLogic().getCustomerName());
