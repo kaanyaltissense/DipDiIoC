@@ -1,5 +1,6 @@
-import { ICustomerDataAccess } from './CustomerBusinessLogic';
+
 import { injectable } from 'inversify';
+import { ICustomerDataAccess } from './Interfaces';
 
 @injectable()
 export class CustomerDataAccess implements ICustomerDataAccess {

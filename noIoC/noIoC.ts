@@ -6,7 +6,7 @@
  * - What would happen if in the future we need to get customer from another database, or from a web service?
  * - It is not possible to replace DataAccess with a mock, so we can't really test CustomerBusinessLogic in isolation, can't do TDD
  */
-class CustomerBusinessLogic {
+export class CustomerBusinessLogic {
     private dataAccess: DataAccess;
 
     constructor() {
@@ -18,7 +18,7 @@ class CustomerBusinessLogic {
     }
 }
 
-class DataAccess {
+export class DataAccess {
     constructor() {
 
     }

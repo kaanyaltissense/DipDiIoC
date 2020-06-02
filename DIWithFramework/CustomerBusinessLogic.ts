@@ -1,13 +1,11 @@
-import { inject, named } from 'inversify';
+import { inject, named, injectable } from 'inversify';
+import { ICustomerDataAccess, ICustomerBusinessLogic } from './Interfaces';
 
-export interface ICustomerDataAccess {
-    getCustomerName(): string;
-}
-
-export class CustomerBusinessLogic {
+@injectable()
+export class CustomerBusinessLogic implements ICustomerBusinessLogic {
 
     constructor(
-        @inject('DataService') @named('Generic') private customerDataAccess: ICustomerDataAccess
+        @inject('DataService') @named('Customer') private customerDataAccess: ICustomerDataAccess
     ) { }
 
     public getCustomerName() {

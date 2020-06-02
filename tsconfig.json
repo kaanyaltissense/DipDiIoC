@@ -23,7 +23,7 @@
     "types": [
       "reflect-metadata",
       "node",
-      "jest"
+      "mocha"
     ],
     "module": "commonjs",
     "allowJs": false,
