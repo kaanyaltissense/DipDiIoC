@@ -50,7 +50,7 @@ export class CustomerDataAccess implements ICustomerDataAccess {
 }
 
 export class SomeOtherDataAccessService implements ICustomerDataAccess {
-    public getCustomerName() {
+    public getCustomerName(): string {
         const dbOutput = fs.readFileSync(path.join(__dirname, '../customerDb'), { encoding: 'utf-8' });
         return dbOutput;
     }

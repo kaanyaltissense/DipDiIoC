@@ -1,14 +1,14 @@
 import { expect } from 'chai';
 import * as sinon from 'sinon';
-import { CustomerBusinessLogic, DataAccessFactory } from './IoCWithFactory';
+import { CustomerBusinessLogic, DataAccessFactory, DataAccess } from './IoCWithFactory';
 
 describe('Testing CustomerBusinessLogic getCustomerName', () => {
     let sandbox: sinon.SinonSandbox;
     let customerBusinessLogic: CustomerBusinessLogic;
 
-    const mockDataAccess: any = {
-        getCustomerName: Function
-    }
+    // const mockDataAccess: any = {
+    //     getCustomerName: Function
+    // }
 
     let getCustomerNameStub: sinon.SinonStub;
 
@@ -16,7 +16,7 @@ describe('Testing CustomerBusinessLogic getCustomerName', () => {
         sandbox = sinon.createSandbox();
     })
     beforeEach(() => {
-        getCustomerNameStub = sandbox.stub(mockDataAccess, 'getCustomerName');
+        getCustomerNameStub = sandbox.stub(DataAccess.prototype, 'getCustomerName');
         customerBusinessLogic = new CustomerBusinessLogic();
     })
     afterEach(() => {
@@ -26,7 +26,7 @@ describe('Testing CustomerBusinessLogic getCustomerName', () => {
     describe('When getCustomerName is called with the stubbed object', () => {
         it('Should use the mock behavior defined in the stub', () => {
             const expectedResult = 'My name is Jeeeef!';
-            sinon.stub(DataAccessFactory, 'getDataAccessObject').returns(mockDataAccess);
+            // sinon.stub(DataAccessFactory, 'getDataAccessObject').returns(mockDataAccess);
             getCustomerNameStub.returns(expectedResult);
             const actualResult = customerBusinessLogic.getCustomerName();
             expect(actualResult).to.equal(expectedResult);
